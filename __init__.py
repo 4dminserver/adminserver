@@ -15,7 +15,7 @@
 # Twitter: https://twitter.com/4dminserver
 
 #- Importamos los modulos necesarios
-import sys, os
+import sys, os, readline
 
 #- Incluye las classes necesarias para el core del programa
 sys.path.append('model')
@@ -34,6 +34,9 @@ _ = interpret.ugettext
 #- Inicializamos la clase installer
 installer = installer(salida, translate, log)
 
+#- Inicializamos el Autocompletado
+readline.parse_and_bind("tab: complete")
+
 salida.default(sistema.promptInit())
 
 salida.default(_("Welcome to Server Configurator") + ' / JarJar')
@@ -50,6 +53,7 @@ elements_menu = len(menu)
 
 #- Bucle infinito que nos muestra el prompt
 while True:
+	readline.set_completer(helpSystem.complete)
 	sentencia = raw_input("adminServer >> ")
 	try:
 		if sentencia.split(' ')[0] == 'newmodule':

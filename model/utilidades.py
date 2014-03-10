@@ -107,6 +107,12 @@ class helpSystem(object):
 			except:
 				msg = _(module + ' module has no help')
 				salida.error(msg);log.write(msg, 1)
+	@staticmethod
+	def complete(text, state):
+		possibilities = ["help", "newmodule", "newmodulemenu", "modules", "clear", "license", "version", "exit"]
+		results = [x for x in possibilities if x.startswith(text)] + [None]
+		return results[state]
+
 
 class installer(object):
 	
