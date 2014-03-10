@@ -91,6 +91,7 @@ class helpSystem(object):
 			msg += color('cyan', _("help NumberProgram / help of module\n"))
 			msg += color('cyan', _("newmodule NameProgram / Create a New Module\n"))
 			msg += color('cyan', _("newmodulemenu NameProgram / Create a New Module with menu\n"))
+			msg += color('cyan', _("modules / Show List Modules\n"))
 			msg += color('cyan', _("clear / Clean Screen\n"))
 			msg += color('cyan', _("license / Show License\n"))
 			msg += color('cyan', _("version / Show Version\n"))
