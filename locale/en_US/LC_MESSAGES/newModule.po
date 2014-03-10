@@ -1,0 +1,31 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Kevin Gonzalvo Vicente <interhack@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-19 09:16+0100\n"
+"PO-Revision-Date: 2013-11-19 17:08+0100\n"
+"Last-Translator: interhack <interhack@gmail.com>\n"
+"Language-Team: Spanish\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: newModule.py:48
+msgid "New module created successfully"
+msgstr "New module created successfully"
+
+#: newModule.py:53
+msgid "There is a module with the same module"
+msgstr "There is a module with the same module"
+
+#: newModule.py:57
+msgid "Error writing the new modul"
+msgstr "Error writing the new module"
