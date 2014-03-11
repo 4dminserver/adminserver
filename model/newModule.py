@@ -51,14 +51,14 @@ class newModule(object):
 # Twitter: https://twitter.com/4dminserver
 
 class add(object):
-	#- imports necessary
-
 	#- @output.[option](default, error)(text) -> printed by stdout
 	#- @translate.[option](init('nameTranslate')) -> initializes the translation file
 	#- @log.[option](write)(text,*1) -> 1 is error -> saves information in the logs
 	#- @installer -> module for install dependencies -> nonoperating
 
 	def __init__(self, output, translate, log, installer, options):
+		#- imports necessary
+
 		#- Operations
 		#- Example:
 		output.default('Hello World!!!')
@@ -120,14 +120,14 @@ class newModuleMenu(object):
 # Twitter: https://twitter.com/4dminserver
 
 class add(object):
-	#- imports necessary
-	
 	#- @output.[option](default, error)(text) -> printed by stdout
 	#- @translate.[option](init('nameTranslate')) -> initializes the translation file
 	#- @log.[option](write)(text,*1) -> 1 is error -> saves information in the logs
 	#- @installer -> module for install dependencies -> nonoperating
 
 	def __init__(self, output, translate, log, installer,options):
+		#- imports necessary
+		
 		#- Operations
 		#- Example:
 		output.default('Hello World Menu!!!')
