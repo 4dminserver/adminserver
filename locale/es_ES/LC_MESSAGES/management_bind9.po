@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: management_bind9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-19 09:16+0100\n"
-"PO-Revision-Date: 2014-02-04 15:39+0100\n"
+"PO-Revision-Date: 2014-03-11 12:06+0100\n"
 "Last-Translator: interhack <interhack@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -56,7 +56,7 @@ msgstr "Nombre de Dominio: "
 
 #: management_bind9.py:38
 msgid "Email Contact: "
-msgstr "Nombre de Dominio: "
+msgstr "Email de Contacto: "
 
 #: management_bind9.py:38
 msgid "Ip Server: "
