@@ -35,12 +35,20 @@ class newModule(object):
 				module = open('modules/' + str(nameModule) + '/' + 'ini_' + str(nameModule) + '.py', 'w')
 				module.write("""#!/usr/bin/python
 #-*-coding:utf-8-*-
-#- adminServer
-#- """ + nameModule + """.py
 #- """ + nameModule + """ Class
-#- By GoldraK & interhack 
-#- Initiation """ + date + """
-#- Last Modified
+
+#- AdminServer / System Management Server
+#- Copyright (C) 2014 GoldraK & Interhack 
+# This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License 
+# as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. 
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
+# You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>
+
+# WebSite: http://adminserver.org/
+# Email: contacto@adminserver.org
+# Facebook: https://www.facebook.com/pages/Admin-Server/795147837179555?fref=ts
+# Twitter: https://twitter.com/4dminserver
 
 #- imports necessary
 
@@ -51,7 +59,7 @@ class add(object):
 	#- @log.[option](write)(text,*1) -> 1 is error -> saves information in the logs
 	#- @installer -> module for install dependencies -> nonoperating
 
-	def __init__(self, output, translate, log, installer):
+	def __init__(self, output, translate, log, installer, options):
 		#- Operations
 		#- Example:
 		output.default('Hello World!!!')
@@ -97,12 +105,20 @@ class newModuleMenu(object):
 				module = open('modules/' + str(nameModule) + '/' + 'ini_' + str(nameModule) + '.py', 'w')
 				module.write("""#!/usr/bin/python
 #-*-coding:utf-8-*-
-#- adminServer
-#- """ + nameModule + """.py
 #- """ + nameModule + """ Class
-#- By GoldraK & interhack 
-#- Initiation """ + date + """
-#- Last Modified
+
+#- AdminServer / System Management Server
+#- Copyright (C) 2014 GoldraK & Interhack 
+# This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License 
+# as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. 
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
+# You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>
+
+# WebSite: http://adminserver.org/
+# Email: contacto@adminserver.org
+# Facebook: https://www.facebook.com/pages/Admin-Server/795147837179555?fref=ts
+# Twitter: https://twitter.com/4dminserver
 
 #- imports necessary
 
@@ -113,7 +129,7 @@ class add(object):
 	#- @log.[option](write)(text,*1) -> 1 is error -> saves information in the logs
 	#- @installer -> module for install dependencies -> nonoperating
 
-	def __init__(self, output, translate, log, installer):
+	def __init__(self, output, translate, log, installer,options):
 		#- Operations
 		#- Example:
 		output.default('Hello World Menu!!!')
@@ -132,6 +148,7 @@ class add(object):
 
 		control = True
 		while control == True:
+			options.set_completer(help.complete)
 			sentencia = raw_input("prueba >> ")
 			if sentencia == '1':
 				option1()
@@ -139,10 +156,32 @@ class add(object):
 				option2()
 			elif sentencia == '0':
 				control = False
+			elif sentencia == 'exit':
+				control = False
+			elif sentencia == 'version':
+				output.default(help.version())
+			elif sentencia == 'help':
+				output.default(help.help())
 			else:
 				output.default('No ha seleccionado una opcion correcta')
 
 class help(object):
+	#- Commands default
+	@staticmethod
+	def complete(text, state):
+		possibilities = ["exit", "version", "help"]
+		results = [x for x in possibilities if x.startswith(text)] + [None]
+		return results[state]
+
+	#- Help for menu
+	@staticmethod
+	def help(translate=''):
+		return "Help Module"
+
+	@staticmethod
+	def version(translate=''):
+		return "Version 0.1"
+
 	@staticmethod
 	#- @translate.[option](init('nameTranslate')) -> initializes the translation file
 	def info(translate):

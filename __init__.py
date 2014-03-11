@@ -15,7 +15,7 @@
 # Twitter: https://twitter.com/4dminserver
 
 #- Importamos los modulos necesarios
-import sys, os, readline
+import sys, os, readline, atexit
 
 #- Incluye las classes necesarias para el core del programa
 sys.path.append('model')
@@ -36,6 +36,8 @@ installer = installer(salida, translate, log)
 
 #- Inicializamos el Autocompletado
 readline.parse_and_bind("tab: complete")
+history = sistema.history()
+readline.read_history_file(history)
 
 salida.default(sistema.promptInit())
 
@@ -54,6 +56,7 @@ elements_menu = len(menu)
 #- Bucle infinito que nos muestra el prompt
 while True:
 	readline.set_completer(helpSystem.complete)
+	atexit.register(readline.write_history_file,history)
 	sentencia = raw_input("adminServer >> ")
 	try:
 		if sentencia.split(' ')[0] == 'newmodule':
@@ -138,7 +141,7 @@ while True:
 				sys.path.append(ruta)
 				try:
 					module = __import__('ini_' + opcion)
-					module.add(salida, translate, log, 'installer')
+					module.add(salida, translate, log, 'installer', readline)
 					menu = sistema.explorar('modules')
 					for items in menu:
 						salida.default(str(items) + ' - ' + str(menu[items]))

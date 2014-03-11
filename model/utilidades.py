@@ -41,6 +41,12 @@ class sistema(object):
 -----------------------------------------------------------------------------
 		"""
 	@staticmethod
+	def history():
+		if not os.path.exists('.adminserver_history'):
+			history_file = open('.adminserver_history','w')
+			history_file.close()
+		return ".adminserver_history"
+	@staticmethod
 	#- Recorre el archivo modules y devuelve los archivos .py
 	def explorar(ruta='.', search='py'):
 		lista_dic = {}
