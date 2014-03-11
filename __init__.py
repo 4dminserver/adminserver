@@ -15,12 +15,7 @@
 # Twitter: https://twitter.com/4dminserver
 
 #- Importamos los modulos necesarios
-<<<<<<< HEAD
 import sys, os, readline, atexit
-=======
-
-import sys, os, readline
->>>>>>> FETCH_HEAD
 
 #- Incluye las classes necesarias para el core del programa
 sys.path.append('model')
