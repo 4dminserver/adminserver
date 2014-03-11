@@ -21,10 +21,15 @@ class translate(object):
 	@staticmethod
 
 	#- le pasamos el nombre del archivo de traduccion
-	def init(traduccion):
+	def init(traduccion, path=''):
 		try:
-			t = gettext.translation(traduccion, 'locale')
+			if path == '':
+				t = gettext.translation(traduccion, 'locale')
+			else:
+				t = gettext.translation(traduccion, path)
 		except:
-			t = gettext.translation(traduccion, 'locale', languages=['en_US'])
-
+			if path == '':
+				t = gettext.translation(traduccion, 'locale', languages=['en_US'])
+			else:
+				t = gettext.translation(traduccion, path, languages=['en_US'])
 		return t
