@@ -50,9 +50,8 @@ class newModule(object):
 # Facebook: https://www.facebook.com/pages/Admin-Server/795147837179555?fref=ts
 # Twitter: https://twitter.com/4dminserver
 
-#- imports necessary
-
 class add(object):
+	#- imports necessary
 
 	#- @output.[option](default, error)(text) -> printed by stdout
 	#- @translate.[option](init('nameTranslate')) -> initializes the translation file
@@ -120,10 +119,9 @@ class newModuleMenu(object):
 # Facebook: https://www.facebook.com/pages/Admin-Server/795147837179555?fref=ts
 # Twitter: https://twitter.com/4dminserver
 
-#- imports necessary
-
 class add(object):
-
+	#- imports necessary
+	
 	#- @output.[option](default, error)(text) -> printed by stdout
 	#- @translate.[option](init('nameTranslate')) -> initializes the translation file
 	#- @log.[option](write)(text,*1) -> 1 is error -> saves information in the logs
