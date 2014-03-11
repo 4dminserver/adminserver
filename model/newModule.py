@@ -74,7 +74,7 @@ class help(object):
 	#- Especificamos si necesita el modulo paquetes adicionales.
 	def package():
 		#- List of extra dependencies needed by the module
-		addtionalPackage = []
+		additionalPackage = []
 		return additionalPackage""")
 				msg = _('New module created successfully')
 				output.default(msg)
@@ -191,7 +191,7 @@ class help(object):
 	#- Especificamos si necesita el modulo paquetes adicionales.
 	def package():
 		#- List of extra dependencies needed by the module
-		addtionalPackage = []
+		additionalPackage = []
 		return additionalPackage""")
 				msg = _('New module created successfully')
 				output.default(msg)

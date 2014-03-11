@@ -115,7 +115,7 @@ class helpSystem(object):
 				salida.error(msg);log.write(msg, 1)
 	@staticmethod
 	def complete(text, state):
-		possibilities = ["help", "newmodule", "newmodulemenu", "modules", "clear", "license", "version", "exit"]
+		possibilities = ["help", "newmodule", "newmodulemenu", "modules", "packages", "clear", "license", "version", "exit"]
 		results = [x for x in possibilities if x.startswith(text)] + [None]
 		return results[state]
 

@@ -93,6 +93,27 @@ while True:
 				msg = _('You need to specify a name for module')
 				salida.error(msg)
 				log.write(msg, 1)
+		elif sentencia.split(' ')[0] == 'packages':
+			try:
+				opcion = sentencia.split(' ')[1]
+				try:
+					newPackage = menu[int(opcion)]
+					ruta = 'modules/' + newPackage
+					sys.path.append(ruta)
+					modules = __import__('ini_' + newPackage)
+					infoModule = modules.help.package()
+					salida.default('Additional Packages for ' + str(newPackage) + ':')
+					for package in infoModule:
+						salida.default('- ' + package)
+
+				except:
+					msg = _('Fatal Error in packages module')
+					salida.error(msg)
+					log.write(msg, 1)	
+			except:
+				msg = _('You need to specify a name of module')
+				salida.error(msg)
+				log.write(msg, 1)
 
 		elif sentencia == 'modules':
 			#- Incluye los modulos que puede tener el programa
