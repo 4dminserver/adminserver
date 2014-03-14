@@ -165,15 +165,15 @@ while True:
 					try:
 						module = __import__('ini_' + opcion)
 						module.add(salida, translate, log, 'installer', readline)
-						menu = sistema.explorar('modules')
-						for items in menu:
-							salida.default(str(items) + ' - ' + str(menu[items]))
-							elements_menu = len(menu)
 					except:
 						raise
 						msg = _("Error in module ") + opcion
 						salida.error(msg);log.write(msg, 1)
 				psid, status = os.waitpid(newpid,0)
+				menu = sistema.explorar('modules')
+				for items in menu:
+					salida.default(str(items) + ' - ' + str(menu[items]))
+					elements_menu = len(menu)
 			except KeyError:
 				msg = _("Option invalid")
 				salida.error(msg);log.write(msg, 1)
