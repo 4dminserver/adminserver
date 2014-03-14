@@ -158,18 +158,21 @@ while True:
 		elif int(sentencia) <= int(elements_menu):
 			try:
 				opcion = menu[int(sentencia)]
-				ruta = 'modules/' + opcion
-				sys.path.append(ruta)
-				try:
-					module = __import__('ini_' + opcion)
-					module.add(salida, translate, log, 'installer', readline)
-					menu = sistema.explorar('modules')
-					for items in menu:
-						salida.default(str(items) + ' - ' + str(menu[items]))
-						elements_menu = len(menu)
-				except:
-					msg = _("Error in module ") + opcion
-					salida.error(msg);log.write(msg, 1)
+				newpid = os.fork()
+				if newpid == 0:
+					ruta = 'modules/' + opcion
+					sys.path.append(ruta)
+					try:
+						module = __import__('ini_' + opcion)
+						module.add(salida, translate, log, 'installer', readline)
+						menu = sistema.explorar('modules')
+						for items in menu:
+							salida.default(str(items) + ' - ' + str(menu[items]))
+							elements_menu = len(menu)
+					except:
+						msg = _("Error in module ") + opcion
+						salida.error(msg);log.write(msg, 1)
+				psid, status = os.waitpid(newpid,0)
 			except KeyError:
 				msg = _("Option invalid")
 				salida.error(msg);log.write(msg, 1)
