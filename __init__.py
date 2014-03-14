@@ -170,6 +170,7 @@ while True:
 							salida.default(str(items) + ' - ' + str(menu[items]))
 							elements_menu = len(menu)
 					except:
+						raise
 						msg = _("Error in module ") + opcion
 						salida.error(msg);log.write(msg, 1)
 				psid, status = os.waitpid(newpid,0)
