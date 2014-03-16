@@ -126,7 +126,7 @@ class installer(object):
 		self.output = output
 		self.translate = translate
 		self.log = log
-		self.system = 'mac'
+		self.system = 'debian'
 	
 	def install(self, package):
 		print package
