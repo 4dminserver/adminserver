@@ -127,6 +127,7 @@ class add(object):
 
 	def __init__(self, output, translate, log, installer,options):
 		#- imports necessary
+		import sys
 		
 		#- Operations
 		#- Example:
