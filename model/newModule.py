@@ -153,9 +153,9 @@ class add(object):
 			elif sentencia == '2':
 				option2()
 			elif sentencia == '0':
-				control = False
+				sys.exit()
 			elif sentencia == 'exit':
-				control = False
+				sys.exit()
 			elif sentencia == 'version':
 				output.default(help.version())
 			elif sentencia == 'help':
