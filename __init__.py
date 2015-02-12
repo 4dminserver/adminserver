@@ -31,6 +31,9 @@ sistema.userSystem(salida)
 interpret = translate.init('init')
 _ = interpret.ugettext
 
+#- Obtenemos mensaje Bienvenida
+messageDisplay = open('welcome', 'r').read()
+
 #- Inicializamos la clase installer
 installer = installer(salida, translate, log)
 
@@ -41,7 +44,7 @@ readline.read_history_file(history)
 
 salida.default(sistema.promptInit())
 
-salida.default(_("Welcome to Server Configurator") + ' / JarJar')
+salida.default(messageDisplay + ' / JarJar')
 salida.default("")
 salida.default(_("Available options:") + "\n")
 
