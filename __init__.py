@@ -1,7 +1,6 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
 
-#- AdminServer / System Management Server
 #- Copyright (C) 2014 GoldraK & Interhack 
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License 
 # as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. 
@@ -15,7 +14,7 @@
 # Twitter: https://twitter.com/4dminserver
 
 #- Importamos los modulos necesarios
-import sys, os, readline, atexit
+import sys, os, readline, atexit, ConfigParser
 
 #- Incluye las classes necesarias para el core del programa
 sys.path.append('model')
@@ -31,8 +30,14 @@ sistema.userSystem(salida)
 interpret = translate.init('init')
 _ = interpret.ugettext
 
-#- Obtenemos mensaje Bienvenida
-messageDisplay = open('welcome', 'r').read()
+#- Obtenemos mensaje Bienvenida y nombre shell
+config = ConfigParser.ConfigParser()
+if not config.read(['config/config']):
+	print "No existe el archivo de configuracion"
+	exit(0)
+
+messageDisplay = config.get('welcome','message')
+promptDisplay = config.get('shell', 'name')
 
 #- Inicializamos la clase installer
 installer = installer(salida, translate, log)
@@ -44,7 +49,7 @@ readline.read_history_file(history)
 
 salida.default(sistema.promptInit())
 
-salida.default(messageDisplay + ' / JarJar')
+salida.default(messageDisplay)
 salida.default("")
 salida.default(_("Available options:") + "\n")
 
@@ -60,7 +65,7 @@ elements_menu = len(menu)
 while True:
 	readline.set_completer(helpSystem.complete)
 	atexit.register(readline.write_history_file,history)
-	sentencia = raw_input("adminServer >> ")
+	sentencia = raw_input(str(promptDisplay) + " >> ")
 	try:
 		if sentencia.split(' ')[0] == 'newmodule':
 			try:

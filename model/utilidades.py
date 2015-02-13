@@ -2,7 +2,6 @@
 #-*-coding:utf-8-*-
 #- utilidades class
 
-#- AdminServer / System Management Server
 #- Copyright (C) 2014 GoldraK & Interhack 
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License 
 # as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. 
@@ -34,7 +33,7 @@ class sistema(object):
 	def promptInit():
 		return """ 
 ----------------------------------------------------------------------------- 						
-| AdminServer  Copyright (C) 2014  GoldraK & Interhack                      |
+| JarJar Copyright (C) 2014  GoldraK & Interhack                      	    |
 | This program comes with ABSOLUTELY NO WARRANTY; for details type 'help'.  |
 | This is free software, and you are welcome to redistribute it             |
 | under certain conditions; type 'license' for details.                     |
@@ -42,10 +41,10 @@ class sistema(object):
 		"""
 	@staticmethod
 	def history():
-		if not os.path.exists('.adminserver_history'):
-			history_file = open('.adminserver_history','w')
+		if not os.path.exists('.jarjar_history'):
+			history_file = open('.jarjar_history','w')
 			history_file.close()
-		return ".adminserver_history"
+		return ".jarjar_history"
 	@staticmethod
 	#- Recorre el archivo modules y devuelve los archivos .py
 	def explorar(ruta='.', search='py'):
