@@ -14,7 +14,7 @@
 # Twitter: https://twitter.com/4dminserver
 
 #- Importamos los modulos necesarios
-import sys, os, readline, atexit, ConfigParser
+import sys, os, readline, atexit, ConfigParser, signal
 
 #- Incluye las classes necesarias para el core del programa
 sys.path.append('model')
@@ -25,6 +25,9 @@ from easter import easter
 
 #- Iniciamos comprobación de usuario
 sistema.userSystem(salida)
+
+#- Bloqueamos las señales de cerrado
+signal.signal(signal.SIGINT, signal.SIG_IGN)
 
 #- Llamamos a la clase translate para inicializar el archivo traduccion init
 interpret = translate.init('init')
